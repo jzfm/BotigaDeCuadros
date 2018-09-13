@@ -3,7 +3,7 @@ package com.botigaDecuadres.Application;
 import com.botigaDecuadres.Application.DTO.PictureDTO;
 import com.botigaDecuadres.Application.DTO.ShopDTO;
 import com.botigaDecuadres.Domain.Picture;
-import com.botigaDecuadres.Domain.WhiteCollarShop;
+import com.botigaDecuadres.Domain.Shop;
 import com.botigaDecuadres.Persistence.PictureRepository;
 import com.botigaDecuadres.Persistence.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,14 +24,14 @@ public class ShopController {
     public ShopController(){}
 
     public ShopDTO createShop(ShopDTO shopDTO) throws Exception {
-        WhiteCollarShop shop = new WhiteCollarShop(shopDTO);
+        Shop shop = new Shop(shopDTO);
         shopRepository.saveShop(shop);
         return new ShopDTO(shop);
     }
 
     public List<ShopDTO> getAllShops() throws Exception {
         List<ShopDTO> shopDTOList = new ArrayList<>();
-        for (WhiteCollarShop shop : shopRepository.getAllShops()) {
+        for (Shop shop : shopRepository.getAllShops()) {
             ShopDTO shopDTO = new ShopDTO(shop);
             shopDTOList.add(shopDTO);
         }
@@ -39,7 +39,7 @@ public class ShopController {
     }
 
     public PictureDTO addPicture(int shopId, PictureDTO pictureDTO) throws Exception {
-        WhiteCollarShop shop = shopRepository.getById(shopId);
+        Shop shop = shopRepository.getShopById(shopId);
         Picture picture = new Picture(shop, pictureDTO);
         pictureRepository.savePicture(picture);
         return new PictureDTO(picture);

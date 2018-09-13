@@ -2,14 +2,14 @@ package com.botigaDecuadres.Domain;
 
 import com.botigaDecuadres.Application.DTO.ShopDTO;
 
-public class WhiteCollarShop {
+public class Shop {
 
     private Integer id;
     private String name;
     private Integer capacity;
     private static int COUNTER=1;
 
-    public WhiteCollarShop(ShopDTO shop) throws Exception {
+    public Shop(ShopDTO shop) throws Exception {
         if (shop.getName().equals("") || shop.getCapacity() <=0)
             throw new Exception();
 

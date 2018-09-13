@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public class PictureRepository {
 
-    public static List<Picture> repository = new ArrayList<>();
+    private static List<Picture> repository = new ArrayList<>();
 
     @Autowired
     private ShopRepository shopRepository;
@@ -18,9 +18,9 @@ public class PictureRepository {
     public PictureRepository(){}
 
     public void savePicture(Picture picture) throws Exception {
-        if (picture == null || !shopRepository.existById(picture.getShop()))
+        if (picture == null || !shopRepository.shopExistById(picture.getShop()))
             throw new Exception();
-        if (picture.getShop().getCapacity() <= pictureCount(picture.getShop().getId()))
+        if (picture.getShop().getCapacity() <= pictureCountByShop(picture.getShop().getId()))
             throw new Exception();
 
         repository.add(picture);
@@ -35,7 +35,7 @@ public class PictureRepository {
         return pictureList;
     }
 
-    private int pictureCount(int shopId){
+    private int pictureCountByShop(int shopId){
         List<Picture> pictureList = new ArrayList<>();
         for (Picture picture : repository) {
             if (picture.getShop().getId().equals(shopId))

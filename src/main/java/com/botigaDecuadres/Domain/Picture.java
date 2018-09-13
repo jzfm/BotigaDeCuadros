@@ -11,11 +11,11 @@ public class Picture {
     private String author;
     private double price;
     private Calendar date;
-    private WhiteCollarShop shop;
+    private Shop shop;
     private static int COUNTER=1;
 
-    public Picture(WhiteCollarShop shop, PictureDTO picture) throws Exception {
-        if (picture.getName().equals("") || picture.getPrice() < 0 || shop == null)
+    public Picture(Shop shop, PictureDTO picture) throws Exception {
+        if (picture == null || picture.getName().equals("") || picture.getPrice() < 0 || shop == null)
             throw new Exception();
 
         this.id = COUNTER;
@@ -47,7 +47,7 @@ public class Picture {
         return date;
     }
 
-    public WhiteCollarShop getShop() {
+    public Shop getShop() {
         return shop;
     }
 }

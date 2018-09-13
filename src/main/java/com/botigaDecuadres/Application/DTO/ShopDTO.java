@@ -1,6 +1,6 @@
 package com.botigaDecuadres.Application.DTO;
 
-import com.botigaDecuadres.Domain.WhiteCollarShop;
+import com.botigaDecuadres.Domain.Shop;
 import com.google.gson.annotations.Expose;
 
 public class ShopDTO {
@@ -12,7 +12,7 @@ public class ShopDTO {
     @Expose
     private int capacity;
 
-    public ShopDTO(WhiteCollarShop shop) throws Exception {
+    public ShopDTO(Shop shop) throws Exception {
         if (shop == null)
             throw new Exception();
 

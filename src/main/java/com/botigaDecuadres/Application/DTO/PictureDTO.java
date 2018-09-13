@@ -1,7 +1,7 @@
 package com.botigaDecuadres.Application.DTO;
 
 import com.botigaDecuadres.Domain.Picture;
-import com.botigaDecuadres.Domain.WhiteCollarShop;
+import com.botigaDecuadres.Domain.Shop;
 import com.google.gson.annotations.Expose;
 
 import java.util.Calendar;
@@ -17,7 +17,7 @@ public class PictureDTO {
     @Expose
     private Calendar date;
     @Expose
-    private WhiteCollarShop shop;
+    private Shop shop;
 
     public PictureDTO(Picture picture) throws Exception {
         if (picture == null)
@@ -55,7 +55,7 @@ public class PictureDTO {
         return date;
     }
 
-    public WhiteCollarShop getShop() {
+    public Shop getShop() {
         return shop;
     }
 }
